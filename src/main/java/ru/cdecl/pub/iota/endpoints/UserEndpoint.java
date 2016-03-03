@@ -59,6 +59,8 @@ public class UserEndpoint {
     }
 
     @POST
+    @Consumes(MediaType.APPLICATION_JSON)
+    @Produces(MediaType.APPLICATION_JSON)
     public Response createUser(UserCreateRequest userCreateRequest) {
         // TODO: обработать передачу не всех данных
         final char[] userPassword = userCreateRequest.getPassword().toCharArray();
@@ -73,7 +75,7 @@ public class UserEndpoint {
                     Status.OK, Status.OK_MSG)).build();
         }
 
-        return Response.status(Response.Status.FORBIDDEN).entity(new BaseApiResponse(Status.USER_ALREADY_EXIST,
+        return Response.status(Response.Status.OK).entity(new BaseApiResponse(Status.USER_ALREADY_EXIST,
                 Status.USER_ALREADY_EXIST_MSG)).build();
     }
 

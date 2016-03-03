@@ -78,7 +78,7 @@ public class SessionEndpoint {
             }
         }
 
-        return Response.status(Response.Status.BAD_REQUEST).entity(new BaseApiResponse(
+        return Response.status(Response.Status.OK).entity(new BaseApiResponse(
                 Status.WRONG_LOGIN_OR_PASSWORD, Status.WRONG_LOGIN_OR_PASSWORD_MSG)).build();
     }
 
